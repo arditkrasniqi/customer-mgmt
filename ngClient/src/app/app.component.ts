@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Service} from './services/service.service';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Service } from './services/service.service';
+import { Router } from '@angular/router';
+import { TokenManagerService } from '../../projects/token-manager/src/public_api';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import {Router} from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  constructor(private service: Service, private router: Router) {
+  constructor(private service: Service, private router: Router, private tokenManager: TokenManagerService) {
   }
 
   ngOnInit() {

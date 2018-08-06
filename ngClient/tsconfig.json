@@ -15,6 +15,20 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "AuthLib": [
+        "dist/auth-lib"
+      ],
+      "AuthLib/*": [
+        "dist/auth-lib/*"
+      ],
+      "TokenManager": [
+        "dist/token-manager"
+      ],
+      "TokenManager/*": [
+        "dist/token-manager/*"
+      ]
+    }
   }
 }
