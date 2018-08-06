@@ -1,14 +1,12 @@
 import {Injectable} from '@angular/core';
-import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import {Observable} from 'rxjs';
+import {CanActivate} from '@angular/router';
+import {TokenManagerService} from '../../../projects/token-manager/src/public_api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
   canActivate(): boolean {
-    return (
-      sessionStorage.getItem('token') !== null
-    );
+    return TokenManagerService.compareTokens();
   }
 }

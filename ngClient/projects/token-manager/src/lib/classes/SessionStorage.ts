@@ -10,10 +10,16 @@ export default class SessionStorage {
         return sessionStorage.getItem(key) !== null;
     }
 
+    public static destroy(keys: string[]) {
+      keys.forEach(key => {
+        sessionStorage.removeItem(key);
+      });
+    }
+
     public static set(key: string, value: any) {
-        if (!this.exists(key)) {
-            sessionStorage.setItem(key, value);
+        if (this.exists(key)) {
+            this.destroy([key]);
         }
-        return this.get(key);
+        sessionStorage.setItem(key, value);
     }
 }

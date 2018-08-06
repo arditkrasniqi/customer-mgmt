@@ -32,7 +32,7 @@ export class Service {
   login(data) {
     const _data = {
       client_id: 2,
-      client_secret: 'oRboYSXxYeVFH7sJ4ivoabtr7yaJZUX6EIOFZxv5',
+      client_secret: 'm6hAXagEYY8v51rugzjeKOn4OVNYpLwdyH0PTLlk',
       grant_type: 'password',
       username: data.email,
       password: data.password

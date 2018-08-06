@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from '../services/service.service';
-import { } from '@angular/common/http';
+import { TokenManagerService } from '../../../projects/token-manager/src/public_api';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +12,7 @@ export class LoginComponent implements OnInit {
   private email: string;
   private password: string;
 
-  constructor(private service: Service) {
-    this.email = 'test@test.test';
-    this.password = '123456';
-  }
+  constructor(private service: Service) { }
 
   ngOnInit() {
   }
@@ -23,8 +20,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.service.login({ email: this.email, password: this.password }).then(res => {
       const response = Object.assign({ access_token: '', expires_in: '' }, res);
-      sessionStorage.setItem('token', response.access_token);
-      sessionStorage.setItem('expiration', response.expires_in);
+      TokenManagerService.setTokenWithExpiration(response.access_token, Number.parseInt(response.expires_in));
 
       const headerObj = {
         'Content-Type': 'application/json',
