@@ -12,7 +12,7 @@ export default class Cookie {
         return c.substring(name.length, c.length);
       }
     }
-    return null;
+    return false;
   }
 
   private static exists(key: string) {

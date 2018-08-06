@@ -3,7 +3,7 @@ export default class SessionStorage {
         if (this.exists(key)) {
             return sessionStorage.getItem(key);
         }
-        return new Error(`${key} doesn't exist`);
+        return false;
     }
 
     private static exists(key: string) {
