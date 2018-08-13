@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import Cookie from './classes/Cookie';
 import SessionStorage from './classes/SessionStorage';
-import { Router } from '@angular/router';
-
 @Injectable({
   providedIn: 'root'
 })
 export class TokenManagerService {
-  constructor(private router: Router) {
+  constructor() {
   }
 
   public static setTokenWithExpiration(token: string, expiration: Number): void {
