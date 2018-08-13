@@ -6,14 +6,14 @@ export default class SessionStorage {
         return false;
     }
 
-    private static exists(key: string) {
+    public static exists(key: string) {
         return sessionStorage.getItem(key) !== null;
     }
 
     public static destroy(keys: string[]) {
-      keys.forEach(key => {
-        sessionStorage.removeItem(key);
-      });
+        keys.forEach(key => {
+            sessionStorage.removeItem(key);
+        });
     }
 
     public static set(key: string, value: any) {

@@ -15,8 +15,8 @@ export default class Cookie {
     return false;
   }
 
-  private static exists(key: string) {
-    return this.get(key);
+  public static exists(key: string) {
+    return this.get(key) !== false;
   }
 
   public static destroy(keys: string[]) {

@@ -11,14 +11,14 @@ import { TokenManagerService } from '../../projects/token-manager/src/public_api
 export class AppComponent implements OnInit {
   title = 'app';
 
-  constructor(private service: Service, private router: Router, private tokenManager: TokenManagerService) {
+  constructor(private service: Service, private router: Router) {
   }
 
   ngOnInit() {
-    if (sessionStorage.getItem('token') !== null) {
+    if (TokenManagerService.tokenExists()) {
       const headerObj = {
         'Content-Type': 'application/json',
-        'authorization': 'Bearer ' + sessionStorage.getItem('token')
+        'authorization': 'Bearer ' + TokenManagerService.get('token')
       };
       this.service.setAuthHeader(headerObj);
     } else {

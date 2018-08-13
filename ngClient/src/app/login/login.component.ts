@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from '../services/service.service';
 import { TokenManagerService } from '../../../projects/token-manager/src/public_api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   private email: string;
   private password: string;
 
-  constructor(private service: Service) { }
+  constructor(private service: Service, private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
         'authorization': 'Bearer ' + sessionStorage.getItem('token')
       };
       this.service.setAuthHeader(headerObj);
+      this.router.navigate(['test-auth']);
     }).catch(error => console.log(error));
   }
 
