@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "Simple Customer Management project",
   "author": "Ardit Krasniqi <krasniqiarit01@gmail.com>",
   "private": true,
   "scripts": {
